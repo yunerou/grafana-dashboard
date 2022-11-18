@@ -24,96 +24,16 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 7,
   "links": [],
   "liveNow": false,
   "panels": [
-    {
-      "collapsed": true,
-      "gridPos": {
-        "h": 1,
-        "w": 24,
-        "x": 0,
-        "y": 0
-      },
-      "id": 12,
-      "panels": [],
-      "title": "Overview",
-      "type": "row"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "bytes"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 10,
-        "w": 17,
-        "x": 0,
-        "y": 1
-      },
-      "id": 14,
-      "options": {
-        "displayMode": "gradient",
-        "minVizHeight": 10,
-        "minVizWidth": 0,
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "showUnfilled": true
-      },
-      "pluginVersion": "9.2.4",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "editorMode": "code",
-          "expr": "kubelet_volume_stats_available_bytes",
-          "legendFormat": "{{persistentvolumeclaim}}",
-          "range": true,
-          "refId": "A"
-        }
-      ],
-      "title": "Capacity Free",
-      "type": "bargauge"
-    },
     {
       "collapsed": false,
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 11
+        "y": 0
       },
       "id": 10,
       "panels": [],
@@ -158,16 +78,13 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 4,
+        "h": 6,
         "w": 3,
         "x": 0,
-        "y": 12
+        "y": 1
       },
       "id": 2,
       "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
         "orientation": "auto",
         "reduceOptions": {
           "calcs": [
@@ -176,9 +93,10 @@
           "fields": "",
           "values": false
         },
-        "textMode": "auto"
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true
       },
-      "pluginVersion": "9.2.4",
+      "pluginVersion": "9.2.5",
       "targets": [
         {
           "datasource": {
@@ -194,7 +112,7 @@
         }
       ],
       "title": "volume used",
-      "type": "stat"
+      "type": "gauge"
     },
     {
       "datasource": {
@@ -221,10 +139,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 4,
-        "w": 6,
+        "h": 3,
+        "w": 3,
         "x": 3,
-        "y": 12
+        "y": 1
       },
       "id": 4,
       "options": {
@@ -241,7 +159,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.2.4",
+      "pluginVersion": "9.2.5",
       "targets": [
         {
           "datasource": {
@@ -286,10 +204,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 2,
+        "h": 3,
         "w": 3,
-        "x": 9,
-        "y": 12
+        "x": 6,
+        "y": 1
       },
       "id": 6,
       "options": {
@@ -306,7 +224,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.2.4",
+      "pluginVersion": "9.2.5",
       "targets": [
         {
           "datasource": {
@@ -321,6 +239,69 @@
         }
       ],
       "title": "Inodes Total",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "bytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 3,
+        "y": 4
+      },
+      "id": 16,
+      "options": {
+        "colorMode": "none",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.2.5",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "expr": "kubelet_volume_stats_available_bytes{persistentvolumeclaim=\"$pvcname\"}",
+          "legendFormat": "{{persistentvolumeclaim}}",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Volume free",
       "type": "stat"
     },
     {
@@ -354,10 +335,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 2,
+        "h": 3,
         "w": 3,
-        "x": 9,
-        "y": 14
+        "x": 6,
+        "y": 4
       },
       "id": 8,
       "options": {
@@ -374,7 +355,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.2.4",
+      "pluginVersion": "9.2.5",
       "targets": [
         {
           "datasource": {
@@ -419,10 +400,16 @@
         "current": {
           "selected": true,
           "text": [
-            "cloud-beaver-storage"
+            "cloud-beaver-storage",
+            "data-loki-loki-distributed-ingester-0",
+            "data-loki-loki-distributed-ingester-1",
+            "storage-volume-prometheus-server-0"
           ],
           "value": [
-            "cloud-beaver-storage"
+            "cloud-beaver-storage",
+            "data-loki-loki-distributed-ingester-0",
+            "data-loki-loki-distributed-ingester-1",
+            "storage-volume-prometheus-server-0"
           ]
         },
         "datasource": {
@@ -456,6 +443,6 @@
   "timezone": "",
   "title": "ebs-csi-driver",
   "uid": "xBx77VdVz",
-  "version": 12,
+  "version": 1,
   "weekStart": ""
 }
