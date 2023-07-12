@@ -22974,7 +22974,7 @@
               "step": 240
             }
           ],
-          "title": "Node Exporter Scrape Time",
+          "title": "NodeExporter Scrape Time",
           "type": "timeseries"
         },
         {
@@ -23115,7 +23115,7 @@
               "step": 240
             }
           ],
-          "title": "Node Exporter Scrape",
+          "title": "NodeExporter Scrape",
           "type": "timeseries"
         }
       ],
@@ -23128,7 +23128,7 @@
           "refId": "A"
         }
       ],
-      "title": "Node Exporter",
+      "title": "NodeExporter",
       "type": "row"
     }
   ],
@@ -23272,7 +23272,7 @@
   },
   "timezone": "browser",
   "title": "Node Exporter Custom",
-  "uid": "rYdddlPWk",
+  "uid": "rYdddlPWl",
   "version": 1,
   "weekStart": ""
 }
