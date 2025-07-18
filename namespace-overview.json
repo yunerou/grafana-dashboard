@@ -18,7 +18,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 5,
+  "id": 3,
   "links": [],
   "panels": [
     {
@@ -2334,7 +2334,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "sum (rate(container_cpu_usage_seconds_total{pod=\"$pod\", container=\"$container\"}[5m]))",
+          "expr": "sum (rate(container_cpu_usage_seconds_total{pod=\"$pod\", container=\"$container\"}[5m])) by (container)",
           "hide": false,
           "instant": false,
           "legendFormat": "Container: {{container}}",
@@ -2348,7 +2348,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "sum (kube_pod_container_resource_requests{pod=\"$pod\",container=\"$container\",resource=\"cpu\"})",
+          "expr": "sum (kube_pod_container_resource_requests{pod=\"$pod\",container=\"$container\",resource=\"cpu\"}) by (container)",
           "hide": false,
           "instant": false,
           "legendFormat": "Request",
